@@ -1,14 +1,17 @@
 const express = require("express");
+const cors = require("cors");
 const chats = require("./data/data");
 
 const app = express();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("API is listening");
 });
 
 app.get("/api/chat", (req, res) => {
-  res.json(chats);
+  res.send(chats);
 });
 
 app.get("/api/chat/:id", (req, res) => {
