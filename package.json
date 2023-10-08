@@ -1,0 +1,17 @@
+{
+  "name": "chatvibe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor backend/server.js"
+  },
+  "author": "Simran Mehta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}
