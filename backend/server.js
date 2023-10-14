@@ -1,9 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const chats = require("./data/data");
+const connectDB = require("./db/connect");
 
 const app = express();
 
+dotenv.config();
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -19,4 +22,16 @@ app.get("/api/chat/:id", (req, res) => {
   res.json(singleChat);
 });
 
-app.listen(5000, console.log("Server is listening on port 5000"));
+const port = process.env.PORT || 5000;
+
+const start = async () => {
+  try {
+    // connectDB
+    await connectDB(process.env.MONGO_URI);
+    app.listen(port, () => console.log(`Server is listening port ${port}...`));
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+};
+
+start();

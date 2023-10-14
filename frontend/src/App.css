@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans:wght@200&family=Playball&display=swap");
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  background-color: turquoise;
+  background-image: linear-gradient(to right, #24c6dc, #514a9d);
+}
