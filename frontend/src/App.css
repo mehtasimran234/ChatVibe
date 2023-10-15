@@ -3,6 +3,6 @@
 .App {
   min-height: 100vh;
   display: flex;
-  background-color: turquoise;
+  background-color: #24c6dc;
   background-image: linear-gradient(to right, #24c6dc, #514a9d);
 }
