@@ -32,6 +32,7 @@ const Login = () => {
           />
         </InputGroup>
       </FormControl>
+
       <FormControl id='password' isRequired>
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
@@ -49,9 +50,11 @@ const Login = () => {
           </InputRightElement>
         </InputGroup>
       </FormControl>
+
       <Button width='100%' colorScheme='blue' onClick={submitHandler}>
         Login
       </Button>
+
       <Button
         width='100%'
         colorScheme='red'
