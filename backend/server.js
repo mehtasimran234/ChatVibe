@@ -5,6 +5,7 @@ const multer = require("multer");
 
 const connectDB = require("./db/connect");
 const userRouter = require("./routes/userRouter");
+const chatRouter = require("./routes/chatRouter");
 
 const notFound = require("./middleware/not-found");
 const errorHandler = require("./middleware/error-handler");
@@ -17,13 +18,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/chat", chatRouter);
 
 const multerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     return cb(null, "./backend/images");
   },
   filename: function (req, file, cb) {
-    return cb(null, `${Date.now()}_${file.originalname}`);
+    return cb(null, `${file.originalname}`);
   },
   limits: {
     fileSize: 1000000, // 1000000 Bytes = 1 MB

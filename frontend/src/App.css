@@ -6,3 +6,9 @@
   background-color: #24c6dc;
   background-image: linear-gradient(to right, #24c6dc, #514a9d);
 }
+
+.custom-file-upload {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
