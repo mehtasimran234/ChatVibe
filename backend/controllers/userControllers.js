@@ -61,6 +61,7 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
+// /api/v1/user?search=simran
 const allUsers = asyncHandler(async (req, res) => {
   const keyword = req.query.search
     ? {
