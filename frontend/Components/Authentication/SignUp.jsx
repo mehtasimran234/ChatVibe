@@ -51,15 +51,27 @@ const SignUp = () => {
   };
 
   const submitHandler = async () => {
+    let picture;
+    if (pic) {
+      const formData = new FormData();
+      formData.append("file", pic);
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/upload",
+          formData,
+          {
+            headers: {
+              "Content-type": "multipart/form-data",
+            },
+          }
+        );
+        picture = response.data;
+      } catch (err) {
+        console.log(err.response.data);
+      }
+    }
     setLoading(true);
-    const formData = new FormData();
-    formData.append("file", pic);
-    axios
-      .post("http://localhost:5000/upload", formData)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+
     if (!email || !password || !name || !confirmPassword) {
       toast({
         title: "Please fill in all the required fields",
@@ -91,7 +103,6 @@ const SignUp = () => {
         },
       };
 
-      let picture = pic.name;
       const { data } = await axios.post(
         "http://localhost:5000/api/v1/user",
         { name, email, password, picture },
@@ -108,7 +119,7 @@ const SignUp = () => {
 
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      navigate("/chats");
+      navigate("/chat");
     } catch (error) {
       toast({
         title: "Error occurred!",
