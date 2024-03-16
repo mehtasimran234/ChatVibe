@@ -2,7 +2,7 @@ import { Skeleton, Stack } from "@chakra-ui/react";
 
 const ChatLoading = () => {
   return (
-    <Stack overflowY='hidden'>
+    <Stack>
       <Skeleton height='45px' />
       <Skeleton height='45px' />
       <Skeleton height='45px' />
