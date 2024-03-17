@@ -13,6 +13,7 @@ const corsOptions = {
 const connectDB = require("./db/connect");
 const userRouter = require("./routes/userRouter");
 const chatRouter = require("./routes/chatRouter");
+const messageRouter = require("./routes/messageRouter");
 
 const notFound = require("./middleware/not-found");
 const errorHandler = require("./middleware/error-handler");
@@ -29,6 +30,7 @@ app.use("/static", express.static(pathToFile));
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/message", messageRouter);
 
 app.post("/upload", upload.single("file"), (req, res) =>
   res.json(req.file.filename)
